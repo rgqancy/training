@@ -5,27 +5,32 @@ import java.lang.String;
 public class Program {
 
 	public static void main(String[] args) {
-		int[] intArray = {5,3,1,2,4,6};
-		System.out.print(intArray);
-		//bubbleSort(intArray);
+		int[] intArray = { 5, 3, 1, 2, 4, 6 };
+		for (int i = 0; i < intArray.length; i++) {
+			System.out.print(intArray[i]);
+		}
+		
+		System.out.println();
+
+		intArray = bubbleSort(intArray);
+		for (int i = 0; i < intArray.length; i++) {
+			System.out.print(intArray[i]);
+		}
 	}
 
-	public static <T> T[] bubbleSort(T[] array) {
-		if (array == null) {
-			System.out.println("to sorted array is not allowed empt.");
-		}
+	public static int[] bubbleSort(int[] intArray) {
+		int temp;
 
-		T temp;
-
-		for (int i = array.length - 1; i > 0; i--) {
+		for (int i = intArray.length - 1; i > 0; i--) {
 			for (int j = 0; j < i; j++) {
-				if (array[i].toString().compareTo(array[j].toString()) > 0 ) {
-					temp = array[i];
-					array[i] = array[j];
-					array[j] = temp;
+				if (intArray[i] < intArray[j]) {
+					temp = intArray[i];
+					intArray[i] = intArray[j];
+					intArray[j] = temp;
 				}
 			}
 		}
-		return array;
+
+		return intArray;
 	}
 }
